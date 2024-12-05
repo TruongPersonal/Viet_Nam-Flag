@@ -1,7 +1,7 @@
-import turtle
+from turtle import *
 
 # Screen setup
-screen = turtle.Screen()
+screen = Screen()
 screen.title('Viet Nam Flag')
 screen.bgcolor('white')
 screen_width = screen.window_width()
@@ -9,7 +9,7 @@ screen_height = screen.window_height()
 screen.setup(width = 1.0, height = 1.0)
 
 # Turtle setup
-my_turtle = turtle.Turtle()
+my_turtle = Turtle()
 my_turtle.hideturtle()
 my_turtle.shape('turtle')
 my_turtle.speed(2.5)
@@ -53,12 +53,11 @@ def draw_flagpole(height, width, offset_y = 0):
         my_turtle.right(90)
     my_turtle.end_fill()
     
-    # my_turtle.penup()
     base_width = 60 
     base_height = 40
     my_turtle.color('#a8a8a8')
     my_turtle.goto(-width / 2 - 40, -height - 270 + offset_y - base_height)
-    # my_turtle.pendown()
+    
     my_turtle.begin_fill()
     for _ in range(2):
         my_turtle.forward(base_width)
@@ -67,7 +66,7 @@ def draw_flagpole(height, width, offset_y = 0):
         my_turtle.right(90)
     my_turtle.end_fill()
 
-# Main drawing logic (called on click)
+# Main drawing logic (called on click)˜˜˜
 def draw_flag(x, y):
     global flag_drawn
     if flag_drawn:
