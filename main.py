@@ -5,7 +5,12 @@ screen = Screen()
 screen.title('Viet Nam Flag')
 screen.bgcolor('white')
 screen.setup(width=1.0, height=1.0)
-screen.cv._rootwindow.resizable(False, False)
+
+try:
+    screen._root = screen.getcanvas().winfo_toplevel()
+    screen._root.resizable(False, False)
+except Exception as e:
+    print("Cannot lock window resizing:", e)
 
 # Turtle setup
 my_turtle = Turtle()
@@ -107,15 +112,11 @@ def draw_flag(x, y):
     # Calculate positions and sizes once
     star_x = 25 * scale_factor
     star_y = 20 * scale_factor + offset_y
-    star_size = 100 * scale_factor
 
     # Move turtle to starting position
     my_turtle.penup()
     my_turtle.goto(star_x, star_y)
     my_turtle.pendown()
-
-    # Draw the star
-    draw_star(star_size)
 
     # Draw flagpole
     draw_flagpole(rectangle_height, rectangle_width, offset_y=offset_y)
